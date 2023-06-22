@@ -1,9 +1,7 @@
-# project
-_site
-.sass-cache
-.vagrant
-
-# general
 .DS_Store
-Thumbs.db
-ehthumbs.db
+node_modules/
+src/.vuepress/.cache/
+src/.vuepress/.temp/
+# src/.vuepress/dist/
+
+.history
