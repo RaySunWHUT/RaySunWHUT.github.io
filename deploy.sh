@@ -8,6 +8,9 @@ cd src/.vuepress/dist
 git init
 git add -A
 git commit -m 'deploy'
+# 注意: 为纠正master词义导致的种族歧视历史问题, 故github官方对于已有仓库保持'master'作为主分支名称
+# 而对于新建仓库则强制将github仓库主分支命名为main
+# ps: 注意此处为什么要push main:gh-pages, 详见根目录.gitignore
 git push -f git@github.com:RaySunWHUT/RaySunWHUT.github.io.git main:gh-pages
 
 cd -
