@@ -2,6 +2,8 @@
 node_modules/
 src/.vuepress/.cache/
 src/.vuepress/.temp/
+# 注意: 此处需要屏蔽掉dist文件夹, 因为会在 .vuepress/dist 文件内再次执行 git init
+# dist文件夹及其内容需要提交至gh-pages分支, 除dist以外的文件提交至master 或 main分支
 src/.vuepress/dist/
 
 .history
