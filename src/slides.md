@@ -1,6 +1,7 @@
 ---
 title: 幻灯片页
-icon: person-chalkboard
+index: false
+timeline: false
 layout: Slide
 ---
 

@@ -2,21 +2,26 @@ import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar({
   "/": [
-    "",
+    // home页路由
+    // "",
     {
-      text: "如何使用",
-      icon: "laptop-code",
-      prefix: "demo/",
-      link: "demo/",
+      text: "操作系统",
+      prefix: "os/",
+      // link: "os/",
+      // 通过文件结构自动生成侧边栏
       children: "structure",
     },
     {
-      text: "文章",
-      icon: "book",
-      prefix: "posts/",
+      text: "数据库",
+      prefix: "db/",
       children: "structure",
     },
-    "intro",
-    "slides",
+    {
+      text: "Java",
+      prefix: "java/",
+      children: "structure",
+    },
+    // "intro",
+    // "slides",
   ],
 });
