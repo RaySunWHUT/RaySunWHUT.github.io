@@ -72,12 +72,6 @@ export default hopeTheme({
     },
   },
 
-  encrypt: {
-    config: {
-      "/slides.html": ["hello"],
-    },
-  },
-
   // page meta/页面元数据置为false
   editLink: false,
   metaLocales: {
