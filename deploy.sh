@@ -13,4 +13,5 @@ git commit -m 'deploy'
 # ps: 注意此处为什么要push main:gh-pages, 详见根目录.gitignore
 git push -f git@github.com:RaySunWHUT/RaySunWHUT.github.io.git main:gh-pages
 
+# 返回到上一次所在目录, 与 cd .. 不同
 cd -

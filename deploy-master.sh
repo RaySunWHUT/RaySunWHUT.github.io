@@ -7,5 +7,3 @@ printf "=== 执行 $0 脚本 ===\n"
 git add .
 git commit -m "$1"
 git push -f git@github.com:RaySunWHUT/RaySunWHUT.github.io.git master
-
-cd -
