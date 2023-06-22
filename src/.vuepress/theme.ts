@@ -63,7 +63,7 @@ export default hopeTheme({
     description: "活在，此时此刻！",
     intro: "/intro.html",
     medias: {
-      // Bilibili: "https://space.bilibili.com/296553547",
+      // bilibili: "https://space.bilibili.com/296553547",
       // Zhihu: "https://www.zhihu.com/people/yu-sui-jiang-nan-97",
       bilibili: "https://www.bilibili.com/",
       GitHub: "https://github.com/RaySunWHUT",
