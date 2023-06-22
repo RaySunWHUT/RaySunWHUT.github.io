@@ -2,7 +2,7 @@
 # 捕捉错误
 set -e
 
-printf "=== 执行 $0 脚本 ==="
+printf "=== 执行 $0 脚本 ===\n"
 # 发布到github
 git add .
 git commit -m "$1"
