@@ -4,13 +4,13 @@ layout: BlogHome
 # icon: home
 title: Home
 hero: true
-# heroImage: /website_assets/website_self/avatar.png
+# heroImage: /website_assets/avatar.png
 heroImageStyle: "max-height: 11rem"
 heroText: 强风吹拂
 # 主页图标的替代文字
 heroAlt: Not Found
 heroFullScreen: true
-bgImage: /website_assets/website_self/cloud_people.png
+bgImage: /website_assets/cloud_people.png
 tagline: 纵有疾风起！ 人生不言弃！
 # projects:
 #   - icon: project

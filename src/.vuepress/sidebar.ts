@@ -21,16 +21,6 @@ export default sidebar({
       prefix: "java/",
       children: "structure",
     },
-    {
-      text: "算法",
-      prefix: "algorithm/",
-      children: "structure",
-    },
-    {
-      text: "中间件",
-      prefix: "components/",
-      children: "structure",
-    },
     // "intro",
     // "slides",
   ],
