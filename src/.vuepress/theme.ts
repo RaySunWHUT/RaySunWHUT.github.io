@@ -15,7 +15,7 @@ export default hopeTheme({
 
   iconAssets: "fontawesome-with-brands",
 
-  logo: "/website_assets/avatar.png",
+  logo: "/website_assets/website_self/avatar.png",
 
   repo: "https://github.com/RaySunWHUT",
 
