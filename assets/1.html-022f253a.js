@@ -1,0 +1,1 @@
+import{_ as t}from"./plugin-vue_export-helper-c27b6911.js";import{o as a,c as o,b as e,d as r}from"./app-c4b3e62b.js";const c={},s=e("h3",{id:"数据库第一篇",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#数据库第一篇","aria-hidden":"true"},"#"),r(" 数据库第一篇")],-1),_=[s];function n(d,i){return a(),o("div",null,_)}const f=t(c,[["render",n],["__file","1.html.vue"]]);export{f as default};
