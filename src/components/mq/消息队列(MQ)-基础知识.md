@@ -61,10 +61,10 @@ MQ基础知识、概念整理
 ## 消息模型
 ### 队列模型
 任何一条消息只能被其中的一个消费者收到
-![队列模型](/website_assets/components/mq/queue.png)
+![队列模型](queue.png)
 ### 发布-订阅模型(Publish-Subscribe Pattern)
 与队列模型**最大区别**：一份消息数据能不能被消费多次的问题
-![发布-订阅模型](/website_assets/components/mq/publisher.png)
+![发布-订阅模型](publisher.png)
 
 
 ## RabbitMQ消息模型
@@ -78,11 +78,11 @@ See Detail
 Exchange模块决定将消息投递到哪个队列中，若同一份消息有多个消费者，则Exchange模块会将消息发送至多个队列。
 </details>
 
-![](/website_assets/components/mq/rabbitMQ.png)
+![](rabbitMQ.png)
 
 ## RocketMQ/Kafka消息模型
 使用 **发布-订阅模型**
-![](/website_assets/components/mq/pd_demo.png)
+![](pd_demo.png)
 
 每个 **主题(Topic)** 包含多个**队列(Queue)/分区(Partition)**，通过多个队列来实现多实例并行生产和消费。
 
@@ -93,7 +93,7 @@ Exchange模块决定将消息投递到哪个队列中，若同一份消息有多
 **生产** 和 **消费** 过程中，分别有1次请求-确认机制。
 
 ## 消息队列基本概念
-![](/website_assets/components/mq/pd_demo.png)
+![](pd_demo.png)
 - **生产者(Producer): 发布者(Publisher)**
 - **消费组(Consumer Group): 订阅者(Subscriber)**
    1. 每个 **消费组(Consumer Group)** 都消费 **主题(Topic)** 中一份完整的消息(所有队列的全部消息)，不同消费组之间消费进度不受影响
@@ -119,7 +119,7 @@ Exchange模块决定将消息投递到哪个队列中，若同一份消息有多
 
 消息队列通过 **事务消息** 实现分布式事务。
 
-![](/website_assets/components/mq/dis_trans.png)
+![](dis_trans.png)
 **步骤4** 提交/回滚失败处理方案
 
 1. Kafka会直接抛出异常，用户自行解决，重试 or 其他。
@@ -137,7 +137,7 @@ Exchange模块决定将消息投递到哪个队列中，若同一份消息有多
 
 
 #### **消息生产-消费流程**
-![](/website_assets/components/mq/psc.png)
+![](psc.png)
 - **生产阶段**
     编写发送消息代码时，正确处理返回值或捕捉异常，即可保证消息不丢失
 - **存储阶段**
