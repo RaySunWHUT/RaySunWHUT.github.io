@@ -182,7 +182,7 @@ git log testMater ... testSun
 ![](image-9.png)
 
 
-![网上流传的原图都包浆了，太丑了，重新绘制(不带水印！)](git_log.png)
+![网上流传的原图都包浆了，太丑了，重新绘制(不带水印！)](git_log2.png)
 
 
 ### **git diff**
@@ -208,7 +208,7 @@ git diff testMater ... testSun
 **ps**: 虽然二者逻辑结果相同，但仍有细微差别，log三点比较没有前后顺序之分(即 **`git log A...B`** 与 **`git log B...A`** 结果完全一致)，但diff两点比较( **`git diff A..B`** 与 **`git diff B..A`** )虽然逻辑结果相同，但实际执行返回结果是不同的，体现在交换顺序后，<font color="#43b244"><b>+(增)</b></font> -> <font color="#C3002E"><b>-(减)</b></font>，<font color="#C3002E"><b>-(减)</b></font> -> <font color="#43b244"><b>+(增)</b></font>
 ![](image-4.png)
 
-![网上流传的原图都包浆了，太丑了，重新绘制(不带水印！)](git_diff.png)
+![网上流传的原图都包浆了，太丑了，重新绘制(不带水印！)](git_diff2.png)
 
 
 ### **git 文件类型**
@@ -263,6 +263,13 @@ git diff [--staged | --cached] <file-path>
 # 比较本地分支与远程分支差异
 # 注: 注意两点比较和三点比较的区别
 git diff main..origin/main
+```
+
+### 清除远程分支引用
+```bash
+# 清理本地仓库中已被删除的远程分支引用
+git remote prune origin
+git fetch --prune
 ```
 
 ## 参考文献

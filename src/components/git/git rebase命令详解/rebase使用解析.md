@@ -12,7 +12,7 @@ date: 2023-07-22
 <!-- more -->
 
 ## **rebase(变基)与merge(合并)区别**
-在开发过程中，经常遇到的一个场景是要将个人开发的feature分支 **pull request** 到master分支，但master分支又已经有了新的变更，pull request存在代码冲突。面对这种情况通常有2种处理方式: 
+在开发过程中，经常遇到的一个场景是要将个人开发的feature分支 **pull request** 到master分支，但master分支又已经有了新的变更，pull request存在代码冲突(conflict)。面对这种情况通常有2种处理方式: 
 1. 将master分支的最新提交 **合并(merge)** 到feature分支， **合并(merge)** 过程中解决冲突。
 2. 在feature分支上执行 **变基(rebase master)**，**变基(rebase master)** 过程中解决冲突。 
 ![rebase与merge对比](merge_vs_rebase.png)
@@ -39,15 +39,37 @@ date: 2023-07-22
 1. **销毁某次commit提交(drop)**
   ![](rebase_drop%E6%8C%87%E4%BB%A4.png)
 2. **合并多个commit提交(squash)**
+   squash命令会将当前commit提交合并(压缩)到上一个commit提交中，合并后的“新”commit提交会有新的commit哈希值。
    ![](rebase_squash%E6%8C%87%E4%BB%A4.png)
 3. **修改commit提交的描述信息(reword)**   
-4. **修改commit提交的内容和描述信息(edit)**
+4. **修改commit提交的描述信息和内容(edit)**
 5. 不希望真正执行变基, 但又需要整理commit提交历史的场景(**伪变基**)
 
 可根据实际情况将上述操作结合使用
 ![](rebase_%E7%BB%BC%E5%90%88%E5%BA%94%E7%94%A8.png)
 
-### **修改指定分支的commit提交描述信息(reword)**
+### **rebase操作的edit命令与reword命令区别**
+- **reword**：
+  使用 **reword** 命令，可以修改提交的描述信息(msg)，但无法修改提交内容。
+  使用 **reword** 命令时，git会打开一个编辑器，可在编辑器内修改commit提交的描述信息。完成后，git会创建一个替换原commit提交的hash值不同的“新”提交。
+- **edit**：
+  使用 **edit** 命令，可以修改提交的描述信息(msg)以及提交内容。
+  **edit命令不同使用场景处理方法**：
+    1. 没有修改commit提交内容(如新增、修改和删除文件内容等)，但要修改commit提交的描述信息(msg)
+    **处理方法**: 此时只能通过 **`git commit --amend`** 修改提交描述信息。
+    2. 修改了commit提交内容(已通过 **`git add`** 添加至 **暂存区(stage)**)，同时要修改commit提交的描述信息(msg)
+    **处理方法(2种)**:
+       1. 执行 **`git commit --amend`** 修改提交描述信息，然后执行 **`git rebase --continue`** 命令继续rebase操作。
+       2. 直接执行 **`git rebase --continue`** 命令，如果之前没有执行过 **`git commit --amend`** 命令，则git会打开一个编辑器，可在编辑器内修改commit提交的描述信息。
+  
+  **补充说明**：
+    使用 **edit** 命令时，git 会暂停 rebase 过程，并将当前分支的 **HEAD** 指向选中提交。此时，可以使用 **`git commit --amend`** 命令修改选中提交的描述信息。 
+    <font color="#C3002E"><b>注</b></font>: **--amend** 参数项只能修改 **最近一次提交(HEAD)** 的描述信息，但由于 **HEAD** 此时正指向 **edit** 命令对应的提交，所以，可以使用 **--amend** 参数项。
+
+
+
+## **场景实践**
+### **伪变基-修改指定分支的commit提交描述信息(reword)**
 ```bash
 # 命令解释:
 # commitId: 要修改提交信息的commit提交的哈希值
@@ -61,17 +83,18 @@ e.g. 修改commitId为 1c6ce75 的提交描述信息
 操作流程如下: 
 ![](rebase_commit_update.gif)
 
-### **rebase操作的edit命令与reword命令区别**
-- **reword**：
-  使用 **reword** 命令，可以修改提交的描述信息，但无法修改提交内容。
-  使用 **reword** 命令时，git会打开一个编辑器，可在编辑器内修改commit提交的描述信息。完成后，git会创建一个新的提交，替代原提交。
-- **edit**：
-  使用 **edit** 命令，修改提交的内容和描述信息。
-  使用 **edit** 命令时，git 会暂停 rebase 过程，并将当前分支的 **HEAD** 指向选中提交。
-  此时，可对当前提交内容进行修改，如新增、修改和删除文件内容等(需要使用 **`git add`** 加入到 **暂存区(stage)**)。
-  完成对当前commit提交的内容修改后，可以使用 **`git commit --amend`** 命令修改提交的描述信息。 修改提交后，可以使用 **`git rebase --continue`** 命令继续 rebase 操作。
+### **标记commit提交，实现rebase自动编排**
+```bash
+# 命令解释:
+# 使用 --fixup 或 --squash 参数项可对commit提交进行额外标记
+git commit --fixup=[commitId] -m "提交描述信息"
+git commit --squash=[commitId] -m "提交描述信息"
 
-  <font color="#C3002E"><b>注</b></font>: **--amend** 参数项只能修改 **最近一次提交(HEAD)** 的描述信息，但由于 **HEAD** 此时正指向 **edit** 命令对应的提交，所以，可以使用 **--amend** 参数项。
+# 使用 --autosquash 参数项可对已标记的commit提交自动完成指令组装，将有标记的commit提交合并(压缩)到 --fixup 或 --squash 参数项对应的commit提交
+git rebase -i [commitId] --autosquash
+```
+![](rebase_fixup.png)
+
 ## **rebase优缺点**
 ### 优点
 1. 整合master分支时，不会增加不属于feature分支本身的提交
