@@ -1,5 +1,5 @@
 ---
-title: git基础知识整理
+title: git核心基础知识
 category:
   - 中间件
 tag:
