@@ -15,7 +15,7 @@ date: 2023-07-22
 在开发过程中，经常遇到的一个场景是要将个人开发的feature分支 **pull request** 到master分支，但master分支又已经有了新的变更，pull request存在代码冲突(conflict)。面对这种情况通常有2种处理方式: 
 1. 将master分支的最新提交 **合并(merge)** 到feature分支， **合并(merge)** 过程中解决冲突。
 2. 在feature分支上执行 **变基(rebase master)**，**变基(rebase master)** 过程中解决冲突。 
-![rebase与merge对比](merge_vs_rebase.png)
+![rebase与merge对比](/website_assets/git/git_rebase/merge_vs_rebase.png)
 
 **合并(merge)** 操作会执行三路合并(**c1、c4、c6**)，并在feature分支生成一个合并后的新commit提交节点(**c7**)。
 分支的合并痕迹可在git graph(执行命令 **`git log --oneline --graph --decorate`**)查看。
@@ -31,22 +31,22 @@ date: 2023-07-22
 在日常开发中，rebase操作的正确使用姿态是 —— **使用交互式rebase**，使用交互式rebase可以让操作执行者参与到git rebase操作的整个过程，更加精确的实现commit提交的压缩、拆分、重排、修改和丢弃等操作。
 
 在feature分支上执行 **`git rebase -i master`** 后会出现如下内容：
-![](git_rebase.png)
+![](/website_assets/git/git_rebase/git_rebase.png)
 其中 **c2、c3、c4** 分别表示feature分支创建后的3次新commit提交。
 通过修改文件内容可以实现：
 1. **调整commit提交顺序**
-  ![](rebase_%E9%A1%BA%E5%BA%8F%E8%B0%83%E6%95%B4.png)
+  ![](/website_assets/git/git_rebase/rebase_%E9%A1%BA%E5%BA%8F%E8%B0%83%E6%95%B4.png)
 1. **销毁某次commit提交(drop)**
-  ![](rebase_drop%E6%8C%87%E4%BB%A4.png)
+  ![](/website_assets/git/git_rebase/rebase_drop%E6%8C%87%E4%BB%A4.png)
 2. **合并多个commit提交(squash)**
    squash命令会将当前commit提交合并(压缩)到上一个commit提交中，合并后的“新”commit提交会有新的commit哈希值。
-   ![](rebase_squash%E6%8C%87%E4%BB%A4.png)
+   ![](/website_assets/git/git_rebase/rebase_squash%E6%8C%87%E4%BB%A4.png)
 3. **修改commit提交的描述信息(reword)**   
 4. **修改commit提交的描述信息和内容(edit)**
 5. 不希望真正执行变基, 但又需要整理commit提交历史的场景(**伪变基**)
 
 可根据实际情况将上述操作结合使用
-![](rebase_%E7%BB%BC%E5%90%88%E5%BA%94%E7%94%A8.png)
+![](/website_assets/git/git_rebase/rebase_%E7%BB%BC%E5%90%88%E5%BA%94%E7%94%A8.png)
 
 ### **rebase操作的edit命令与reword命令区别**
 - **reword**：
@@ -78,10 +78,10 @@ git rebase -i [commitId]~1
 ```
 
 e.g. 修改commitId为 1c6ce75 的提交描述信息
-![](image-2.png)
+![](/website_assets/git/git_rebase/image-2.png)
 
 操作流程如下: 
-![](rebase_commit_update.gif)
+![](/website_assets/git/git_rebase/rebase_commit_update.gif)
 
 ### **标记commit提交，实现rebase自动编排**
 ```bash
@@ -93,7 +93,7 @@ git commit --squash=[commitId] -m "提交描述信息"
 # 使用 --autosquash 参数项可对已标记的commit提交自动完成指令组装，将有标记的commit提交合并(压缩)到 --fixup 或 --squash 参数项对应的commit提交
 git rebase -i [commitId] --autosquash
 ```
-![](rebase_fixup.png)
+![](/website_assets/git/git_rebase/rebase_fixup.png)
 
 ## **rebase优缺点**
 ### 优点

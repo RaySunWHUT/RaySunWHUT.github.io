@@ -12,10 +12,10 @@ git基础知识及易混淆概念整理
 
 
 ## **Git知识图谱**
-![](image.png)
+![](/website_assets/git/git_basic/image.png)
 
 ## **Git操作流程图**
-![](image-1.png)
+![](/website_assets/git/git_basic/image-1.png)
 
 ## **Git名词解释**
 
@@ -43,7 +43,7 @@ git基础知识及易混淆概念整理
 
 HEAD类似一个“**指针**”，指向 **当前分支** 的 **最新commit**。
 
-![](image-2.png)
+![](/website_assets/git/git_basic/image-2.png)
 
 ## **Git命令**
 
@@ -167,9 +167,9 @@ git log testMater ... testSun
 
 展示 **分支B拥有而分支A没有的所有提交**。
 
-![](image-6.png)
+![](/website_assets/git/git_basic/image-6.png)
 
-![](image-7.png)
+![](/website_assets/git/git_basic/image-7.png)
 
 #### git log  **三点(…)比较**
 
@@ -177,12 +177,12 @@ git log testMater ... testSun
 
 展示 **分支B拥有而分支A没有的所有提交，以及，分支A拥有而分支B没有的所有提交**。
 
-![](image-8.png)
+![](/website_assets/git/git_basic/image-8.png)
 
-![](image-9.png)
+![](/website_assets/git/git_basic/image-9.png)
 
 
-![网上流传的原图都包浆了，太丑了，重新绘制(不带水印！)](git_log2.png)
+![网上流传的原图都包浆了，太丑了，重新绘制(不带水印！)](/website_assets/git/git_basic/git_log2.png)
 
 
 ### **git diff**
@@ -206,9 +206,9 @@ git diff testMater ... testSun
 #### **git diff 两点(..)比较 && 三点(...)比较**
 <font color="C3002E"><b>注: 从集合交、并逻辑来看，diff两点比较与log三点比较结果相同，diff三点比较与log两点比较结果相同 </b></font>
 **ps**: 虽然二者逻辑结果相同，但仍有细微差别，log三点比较没有前后顺序之分(即 **`git log A...B`** 与 **`git log B...A`** 结果完全一致)，但diff两点比较( **`git diff A..B`** 与 **`git diff B..A`** )虽然逻辑结果相同，但实际执行返回结果是不同的，体现在交换顺序后，<font color="#43b244"><b>+(增)</b></font> -> <font color="#C3002E"><b>-(减)</b></font>，<font color="#C3002E"><b>-(减)</b></font> -> <font color="#43b244"><b>+(增)</b></font>
-![](image-4.png)
+![](/website_assets/git/git_basic/image-4.png)
 
-![网上流传的原图都包浆了，太丑了，重新绘制(不带水印！)](git_diff2.png)
+![网上流传的原图都包浆了，太丑了，重新绘制(不带水印！)](/website_assets/git/git_basic/git_diff2.png)
 
 
 ### **git 文件类型**
@@ -226,7 +226,7 @@ git diff testMater ... testSun
 git status
 ```
 
-![](image-11.png)
+![](/website_assets/git/git_basic/image-11.png)
 ### 工作区(workspace)命令
 
 ```bash
