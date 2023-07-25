@@ -61,10 +61,10 @@ MQ基础知识、概念整理
 ## 消息模型
 ### 队列模型
 任何一条消息只能被其中的一个消费者收到
-![队列模型](queue.png)
+![队列模型](/website_assets/mq/mq_basic/queue.png)
 ### 发布-订阅模型(Publish-Subscribe Pattern)
 与队列模型**最大区别**：一份消息数据能不能被消费多次的问题
-![发布-订阅模型](publisher.png)
+![发布-订阅模型](/website_assets/mq/mq_basic/publisher.png)
 
 
 ## RabbitMQ消息模型
@@ -78,11 +78,11 @@ See Detail
 Exchange模块决定将消息投递到哪个队列中，若同一份消息有多个消费者，则Exchange模块会将消息发送至多个队列。
 </details>
 
-![](rabbitMQ.png)
+![](/website_assets/mq/mq_basic/rabbitMQ.png)
 
 ## RocketMQ/Kafka消息模型
 使用 **发布-订阅模型**
-![](pd_demo.png)
+![](/website_assets/mq/mq_basic/pd_demo.png)
 
 每个 **主题(Topic)** 包含多个**队列(Queue)/分区(Partition)**，通过多个队列来实现多实例并行生产和消费。
 
