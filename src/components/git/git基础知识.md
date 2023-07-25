@@ -238,6 +238,9 @@ git clean -df
 # 查看 工作区(workspace) 文件变动/更改
 # 注: 使用该命令无法检测到 未追踪文件(Untracked file)
 git diff
+
+# -n: 用于查看未追踪文件(Untracked)列表
+git clean -n
 ```
 
 ### 暂存区(stage)命令
