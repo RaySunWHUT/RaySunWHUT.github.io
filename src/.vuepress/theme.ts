@@ -54,7 +54,7 @@ export default hopeTheme({
   hotReload: true,
 
   // 纯净模式
-  // pure: true,
+  pure: true,
 
   blog: {
     // 时间线顶部文字
@@ -77,6 +77,9 @@ export default hopeTheme({
   metaLocales: {
     editLink: "在 GitHub 上编辑此页"
   },
+
+  // 是否在桌面模式下右侧展示每个markdown标题列表
+  toc: false,
 
   plugins: {
     copyCode: {

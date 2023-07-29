@@ -11,9 +11,8 @@ git基础知识及易混淆概念整理
 <!-- more -->
 
 
-## **Git知识图谱**
+## **Git核心基础-知识图谱**
 ![](/website_assets/git/git_basic/image.png)
-
 ## **Git操作流程图**
 ![](/website_assets/git/git_basic/image-1.png)
 
@@ -218,7 +217,7 @@ git diff testMater ... testSun
 - **已修改文件(modified)**：在 **工作区(workspace)** 中已修改，但尚未添加到 **暂存区(stage)** 的文件。
 - **已暂存文件(staged)**：已通过 git add 命令添加到 **暂存区(stage)** 的新增/已修改文件。
 - **未修改文件(unmodified)**：如名。
-- **未追踪文件(Untracked)**：在Git仓库中存在，但尚未添加到Git版本控制系统中的文件。
+- **未追踪文件(Untracked)**：在Git工作区中存在，但尚未添加到Git版本控制系统中的文件。
 - **忽略文件(Ignored)**：**.gitignore**文件中指定的文件，这些文件不会被 Git 跟踪，也不会显示在 **未追踪文件(Untracked)** 中。
 
 ```bash
@@ -270,7 +269,7 @@ git diff main..origin/main
 
 ### 清除远程分支引用
 ```bash
-# 清理本地仓库中已被删除的远程分支引用
+# 清理本地仓库中已被删除的远程分支引用，可使用以下2条命令的任意一条
 git remote prune origin
 git fetch --prune
 ```

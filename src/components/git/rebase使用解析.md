@@ -10,6 +10,8 @@ date: 2023-07-22
 
 浅析git rebase命令的作用、使用方法、适用场景以及和merge命令的区别
 <!-- more -->
+## **文章梗概**
+![](/website_assets/git/git_rebase/git_rebase_pic.png)
 
 ## **rebase(变基)与merge(合并)区别**
 在开发过程中，经常遇到的一个场景是要将个人开发的feature分支 **pull request** 到master分支，但master分支又已经有了新的变更，pull request存在代码冲突(conflict)。面对这种情况通常有2种处理方式: 
