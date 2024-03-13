@@ -7,6 +7,9 @@ tag:
 date: 2023-07-30
 ---
 
+General summary
+<!-- more -->
+
 ## 现象描述
 执行命令run一个容器(container)，容器生成后发现既没有任何报错也没有消息提示，就自动关闭。
 ```bash

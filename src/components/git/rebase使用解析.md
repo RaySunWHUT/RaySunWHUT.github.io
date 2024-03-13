@@ -6,10 +6,12 @@ category:
 tag:
   - git
 date: 2023-07-22
+star: true
 ---
 
 浅析git rebase命令的作用、使用方法、适用场景以及和merge命令的区别
 <!-- more -->
+
 ## **文章梗概**
 ![](/website_assets/git/git_rebase/git_rebase_pic.png)
 
@@ -27,7 +29,7 @@ date: 2023-07-22
 
 由于代码评审时，commit提交节点愈清晰愈好，且不应在feature分支增加不属于feature分支本身的commit提交；**所以，在整合个人开发的feature分支时，推荐使用rebase，而非merge**。
 
-<font color="#C3002E"><b>注</b></font>: 只要冲突(conflict)处理方式相同，那么分别执行merge和rebase后的commit提交节点内容是完全相同的。
+<font color="#C3002E"><b>注</b></font>: 只要冲突(conflict)处理方式相同，那么分别执行 **merge(c7)** 和 **rebase(c4')** 后的节点内容是完全相同的。
 
 ## **交互式rebase**
 在日常开发中，rebase操作的正确使用姿态是 —— **使用交互式rebase**，使用交互式rebase可以让操作执行者参与到git rebase操作的整个过程，更加精确的实现commit提交的压缩、拆分、重排、修改和丢弃等操作。
@@ -50,7 +52,7 @@ date: 2023-07-22
 可根据实际情况将上述操作结合使用
 ![](/website_assets/git/git_rebase/rebase_%E7%BB%BC%E5%90%88%E5%BA%94%E7%94%A8.png)
 
-### **rebase操作的edit命令与reword命令区别**
+### **rebase: edit命令与reword命令区别**
 - **reword**：
   使用 **reword** 命令，可以修改提交的描述信息(msg)，但无法修改提交内容。
   使用 **reword** 命令时，git会打开一个编辑器，可在编辑器内修改commit提交的描述信息。完成后，git会创建一个替换原commit提交的hash值不同的“新”提交。
@@ -68,10 +70,8 @@ date: 2023-07-22
     使用 **edit** 命令时，git 会暂停 rebase 过程，并将当前分支的 **HEAD** 指向选中提交。此时，可以使用 **`git commit --amend`** 命令修改选中提交的描述信息。 
     <font color="#C3002E"><b>注</b></font>: **--amend** 参数项只能修改 **最近一次提交(HEAD)** 的描述信息，但由于 **HEAD** 此时正指向 **edit** 命令对应的提交，所以，可以使用 **--amend** 参数项。
 
-
-
 ## **场景实践**
-### **伪变基-修改指定分支的commit提交描述信息(reword)**
+### **1. 伪变基-修改指定分支的commit提交描述信息(reword)**
 ```bash
 # 命令解释:
 # commitId: 要修改提交信息的commit提交的哈希值
@@ -85,7 +85,7 @@ e.g. 修改commitId为 1c6ce75 的提交描述信息
 操作流程如下: 
 ![](/website_assets/git/git_rebase/rebase_commit_update.gif)
 
-### **标记commit提交，实现rebase自动编排**
+### **2. 标记commit提交，实现rebase自动编排**
 ```bash
 # 命令解释:
 # 使用 --fixup 或 --squash 参数项可对commit提交进行额外标记
@@ -109,7 +109,7 @@ git rebase -i [commitId] --autosquash
 
 
 ## **使用法则**
-在个人开发的feature分支上执行 **rebase(变基)**，在公共分支上执行**merge(合并)**。
+在个人开发的feature分支上执行 **rebase(变基)**，在公共分支上执行 **merge(合并)**。
 <font color="#C3002E"><b>注</b></font>: **永远不要在多人协作(已被其他人引用)的公共分支(e.g. master分支)上执行rebase！！**
 
 

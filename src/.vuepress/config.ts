@@ -1,6 +1,6 @@
 import { defineUserConfig } from "vuepress";
-import theme from "./theme.js";
-import { searchProPlugin } from "vuepress-plugin-search-pro";
+import theme from "./theme.ts";
+import { viteBundler } from '@vuepress/bundler-vite';
 
 export default defineUserConfig({
   base: "/",
@@ -10,23 +10,14 @@ export default defineUserConfig({
   description: "浪客剑心'BLOG",
 
   theme,
-  plugins: [
-    searchProPlugin({
-      // 索引全部内容
-      indexContent: true,
-      // 为分类和标签添加索引
-      customFields: [
-        {
-          getter: (page) => page.frontmatter.category,
-          formatter: "分类：$content",
-        },
-        {
-          getter: (page) => page.frontmatter.tag,
-          formatter: "标签：$content",
-        },
-      ],
-    }),
-  ],
+  plugins: [],
+
+  // vite构建工具
+  bundler: viteBundler({
+    viteOptions: {},
+    vuePluginOptions: {},
+  }),
+
 
   // pagePatterns: [
   //   // 匹配指定目录下的所有 Markdown 文件

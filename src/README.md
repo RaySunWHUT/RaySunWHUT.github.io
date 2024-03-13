@@ -2,7 +2,7 @@
 home: true
 layout: BlogHome
 # icon: home
-title: Home
+title: 首页
 hero: true
 # heroImage: /website_assets/website_self/avatar.png
 heroImageStyle: "max-height: 11rem"
