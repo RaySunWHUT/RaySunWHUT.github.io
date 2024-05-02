@@ -6,19 +6,22 @@ category:
 tag:
   - git
 date: 2023-07-22
+
+# 在hero文章板块展示
 star: true
 ---
-
-浅析git rebase命令的作用、使用方法、适用场景以及和merge命令的区别
+::: note 浅析git rebase命令的作用、使用方法、适用场景以及和merge命令的区别 
+:::
 <!-- more -->
 
-## **文章梗概**
+## 一、文章梗概
 ![](/website_assets/git/git_rebase/git_rebase_pic.png)
 
-## **rebase(变基)与merge(合并)区别**
+## 二、rebase(变基)与merge(合并)区别
 在开发过程中，经常遇到的一个场景是要将个人开发的feature分支 **pull request** 到master分支，但master分支又已经有了新的变更，pull request存在代码冲突(conflict)。面对这种情况通常有2种处理方式: 
 1. 将master分支的最新提交 **合并(merge)** 到feature分支， **合并(merge)** 过程中解决冲突。
 2. 在feature分支上执行 **变基(rebase master)**，**变基(rebase master)** 过程中解决冲突。 
+
 ![rebase与merge对比](/website_assets/git/git_rebase/merge_vs_rebase.png)
 
 **合并(merge)** 操作会执行三路合并(**c1、c4、c6**)，并在feature分支生成一个合并后的新commit提交节点(**c7**)。
@@ -31,28 +34,30 @@ star: true
 
 <font color="#C3002E"><b>注</b></font>: 只要冲突(conflict)处理方式相同，那么分别执行 **merge(c7)** 和 **rebase(c4')** 后的节点内容是完全相同的。
 
-## **交互式rebase**
+## 三、交互式rebase
 在日常开发中，rebase操作的正确使用姿态是 —— **使用交互式rebase**，使用交互式rebase可以让操作执行者参与到git rebase操作的整个过程，更加精确的实现commit提交的压缩、拆分、重排、修改和丢弃等操作。
 
+### 3.1、rebase操作命令
 在feature分支上执行 **`git rebase -i master`** 后会出现如下内容：
 ![](/website_assets/git/git_rebase/git_rebase.png)
 其中 **c2、c3、c4** 分别表示feature分支创建后的3次新commit提交。
 通过修改文件内容可以实现：
 1. **调整commit提交顺序**
   ![](/website_assets/git/git_rebase/rebase_%E9%A1%BA%E5%BA%8F%E8%B0%83%E6%95%B4.png)
-1. **销毁某次commit提交(drop)**
+
+2. **销毁某次commit提交(drop)**
   ![](/website_assets/git/git_rebase/rebase_drop%E6%8C%87%E4%BB%A4.png)
-2. **合并多个commit提交(squash)**
+3. **合并多个commit提交(squash)**
    squash命令会将当前commit提交合并(压缩)到上一个commit提交中，合并后的“新”commit提交会有新的commit哈希值。
    ![](/website_assets/git/git_rebase/rebase_squash%E6%8C%87%E4%BB%A4.png)
-3. **修改commit提交的描述信息(reword)**   
-4. **修改commit提交的描述信息和内容(edit)**
-5. 不希望真正执行变基, 但又需要整理commit提交历史的场景(**伪变基**)
+4. **修改commit提交的描述信息(reword)**   
+5. **修改commit提交的描述信息和内容(edit)**
+6. 不希望真正执行变基, 但又需要整理commit提交历史的场景(**伪变基**)
 
 可根据实际情况将上述操作结合使用
 ![](/website_assets/git/git_rebase/rebase_%E7%BB%BC%E5%90%88%E5%BA%94%E7%94%A8.png)
 
-### **rebase: edit命令与reword命令区别**
+### 3.2、rebase: edit命令与reword命令区别
 - **reword**：
   使用 **reword** 命令，可以修改提交的描述信息(msg)，但无法修改提交内容。
   使用 **reword** 命令时，git会打开一个编辑器，可在编辑器内修改commit提交的描述信息。完成后，git会创建一个替换原commit提交的hash值不同的“新”提交。
@@ -70,8 +75,8 @@ star: true
     使用 **edit** 命令时，git 会暂停 rebase 过程，并将当前分支的 **HEAD** 指向选中提交。此时，可以使用 **`git commit --amend`** 命令修改选中提交的描述信息。 
     <font color="#C3002E"><b>注</b></font>: **--amend** 参数项只能修改 **最近一次提交(HEAD)** 的描述信息，但由于 **HEAD** 此时正指向 **edit** 命令对应的提交，所以，可以使用 **--amend** 参数项。
 
-## **场景实践**
-### **1. 伪变基-修改指定分支的commit提交描述信息(reword)**
+## 四、场景实践
+### 4.1、伪变基-修改指定分支的commit提交描述信息(reword)
 ```bash
 # 命令解释:
 # commitId: 要修改提交信息的commit提交的哈希值
@@ -85,7 +90,7 @@ e.g. 修改commitId为 1c6ce75 的提交描述信息
 操作流程如下: 
 ![](/website_assets/git/git_rebase/rebase_commit_update.gif)
 
-### **2. 标记commit提交，实现rebase自动编排**
+### 4.2、标记commit提交，实现rebase自动编排
 ```bash
 # 命令解释:
 # 使用 --fixup 或 --squash 参数项可对commit提交进行额外标记
@@ -97,7 +102,7 @@ git rebase -i [commitId] --autosquash
 ```
 ![](/website_assets/git/git_rebase/rebase_fixup.png)
 
-## **rebase优缺点**
+## 五、rebase优缺点
 ### 优点
 1. 整合master分支时，不会增加不属于feature分支本身的提交
 2. rebase可以使分支的提交历史变得整洁
@@ -108,10 +113,10 @@ git rebase -i [commitId] --autosquash
 2. 在公共分支上执行rebase可能会导致提交日志记录发生混乱(相同作者、时间、内容的commit重复出现等情况)
 
 
-## **使用法则**
+## 六、使用法则
 在个人开发的feature分支上执行 **rebase(变基)**，在公共分支上执行 **merge(合并)**。
 <font color="#C3002E"><b>注</b></font>: **永远不要在多人协作(已被其他人引用)的公共分支(e.g. master分支)上执行rebase！！**
 
 
-## **参考文献**
+## 七、参考文献
 1. https://www.bilibili.com/video/BV1Xb4y1773F/?spm_id_from=333.788

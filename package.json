@@ -12,13 +12,14 @@
     "docs:update-package": "pnpm dlx vp-update"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.8",
-    "@vuepress/plugin-copyright": "2.0.0-rc.19",
-    "reveal.js": "^5.0.5",
-    "vue": "^3.4.21",
-    "vuepress": "2.0.0-rc.8",
-    "vuepress-plugin-md-enhance": "2.0.0-rc.31",
-    "vuepress-plugin-search-pro": "2.0.0-rc.31",
-    "vuepress-theme-hope": "2.0.0-rc.31"
+    "@vuepress/bundler-vite": "2.0.0-rc.9",
+    "@vuepress/plugin-copyright": "2.0.0-rc.26",
+    "@vuepress/plugin-shiki": "2.0.0-rc.25",
+    "reveal.js": "^5.1.0",
+    "vue": "^3.4.26",
+    "vuepress": "2.0.0-rc.9",
+    "vuepress-plugin-md-enhance": "2.0.0-rc.38",
+    "vuepress-plugin-search-pro": "2.0.0-rc.38",
+    "vuepress-theme-hope": "2.0.0-rc.38"
   }
 }

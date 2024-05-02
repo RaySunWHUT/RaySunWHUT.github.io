@@ -1,7 +1,16 @@
 // you can change config here
 // 主题选择器
 $theme-colors: #8e44ad, #f26d6d, #3eaf7c, #fb9b5f;
+// $theme-colors: #7f8c8d;
+
 $colors: #c0392b, #d35400, #f39c12, #27ae60, #16a085, #2980b9, #8e44ad, #2c3e50, 
 #7f8c8d !default;
 
-$content-width: 800px;
+// 主要内容的宽度
+$content-width: 928px;
+
+// 主页内容的宽度
+// $home-page-width: 860px !default;
+
+// 代码块背景颜色
+$code-bg-color: #F8F8F8;

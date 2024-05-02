@@ -5,6 +5,8 @@ category:
 tag:
   - git
 date: 2023-07-22
+# 在hero文章板块展示
+star: true
 ---
 
 git基础知识及易混淆概念整理

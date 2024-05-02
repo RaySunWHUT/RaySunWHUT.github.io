@@ -1,1 +1,79 @@
 // place your custom styles here
+// 在此文件中 添加/覆盖 样式
+
+// 修改 主要内容(content) 距离屏幕两侧的距离
+.theme-container.no-sidebar .vp-page {
+    padding-inline: 220px;
+}
+
+// 在修改两侧距离的css情况下，保持首页全屏的背景图尺寸不变
+.theme-container.no-sidebar .vp-blog {
+    padding-inline: 0;
+}
+
+
+// 修改文章 字体 + 颜色
+.theme-container {
+    font: 400 1rem/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #222222;
+}
+
+// 使用css属性选择器，检测暗模式, 对于特定的class类修改css样式
+// 调整暗黑模式(dark)下的字体颜色
+html[data-theme="dark"] .theme-container {
+    font: 400 1rem/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #9E9E9E;
+}
+
+/* 以下自定义样式为 修改自动生成目录的样式 */
+
+// 背景: 出于便于管理 .md文章引用 的要求，每篇文章都会独占1个文件夹；而自动生成目录时，会出现 文件夹(目录)-文章 同名的情况，不够优雅
+// 故将与文章同名文件夹隐藏
+// 注: 无需考虑自动生成更深层(depth>3)目录的情况, 因为 plugin-catalog 插件最多只支持生成3层目录
+.vp-catalog-sub-title.has-children {
+    display: none;
+}
+
+// 基于上述背景的缘故，将文章同名文件夹的超链接(<a>), 置为不可用
+.vp-catalog-child-title.has-children a.route-link {
+    // 使链接不响应鼠标事件
+    pointer-events: none;
+}
+
+// 控制位于文件夹下的 .md文件 自动生成目录的前后左右间距
+.route-link.vp-sub-catalog-link {
+    padding: 0 0 0 0;
+    margin: 4px 0 0 0;
+}
+
+// 调整自动生成目录(一级)的字体大小
+// .vp-catalog-title: 一级目录文章的css样式
+.route-link.vp-catalog-title {
+    font-size: 16px;
+
+    // 若需禁止链接出现下划线，则启用如下属性
+    // text-decoration: none !important;
+}
+
+// 调整自动生成目录(二级)的<a>的文字颜色
+// .vp-sub-catalogs-wrapper: 二级目录文章的css样式
+.vp-sub-catalogs-wrapper a {
+    color: #222222;
+}
+
+// 调整自动生成目录(二级)的<a>的hover事件变化
+.vp-sub-catalogs-wrapper a:hover {
+    background-color: white;
+    color: #8c9898;
+    // !important: 使css样式强制生效
+    text-decoration: underline !important;
+}
+
+// 调整「黑暗模式」下自动生成目录(二级)的样式
+html[data-theme="dark"] .vp-sub-catalogs-wrapper a {
+    background-color: #0d1117;
+    color: #9E9E9E;
+}
+html[data-theme="dark"] .vp-sub-catalogs-wrapper a:hover {
+    color: #7f8c8d;
+}

@@ -1,10 +1,19 @@
 // you can change colors here
-$theme-color: #2196f3;
+$theme-color: #7f8c8d;
 
 // 普通文本使用的字体
-$font-family: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Droid Sans", "Helvetica Neue"';
+// -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif
+$font-family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,Arial, sans-serif';
+// $font-family: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Droid Sans", "Helvetica Neue"';
+// $font-family: 'Georgia, -apple-system, "Nimbus Roman No9 L", "PingFang SC", "Hiragino Sans GB", "Noto Serif SC", "Microsoft Yahei", "WenQuanYi Micro Hei", "ST Heiti", sans-serif';
+// $font-family: ''Rubik', sans-serif';
+
+
 // 标题元素的字体
-$font-family-heading: '"PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei"';
+// $font-family-heading: '"PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei"';
+$font-family-heading: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,Arial, sans-serif';
+
+
 // 代码上使用的字体
 $font-family-mono: 'Menlo, Monaco, Consolas, "Courier New", monospace';
 

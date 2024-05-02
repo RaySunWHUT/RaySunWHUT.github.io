@@ -1,5 +1,5 @@
 ---
-title: “docker启动后自动退出”解决办法
+title: docker启动后自动退出-解决办法
 category:
   - 中间件
 tag:
@@ -7,7 +7,6 @@ tag:
 date: 2023-07-30
 ---
 
-General summary
 <!-- more -->
 
 ## 现象描述

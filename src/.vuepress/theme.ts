@@ -28,12 +28,13 @@ export default hopeTheme({
 
   // 导航栏: navbar
   navbar,
+
   // 导航栏标题
-  navTitle: false,
-  // 导航栏是否启用图标
-  navbarIcon: false,
+  navbarTitle: "Ray's Blog",
+  
   // 向下滚动时隐藏导航栏
   navbarAutoHide: "always",
+  
   // 导航栏布局
   navbarLayout: { 
     start: ["Brand"], 
@@ -46,17 +47,16 @@ export default hopeTheme({
 
   // 侧边栏: sidebar
   sidebar: false,
-  sidebarIcon: false,
 
   // footer: "",
   // displayFooter: true,
 
-
   // 隐藏打印按钮
   print: false,
 
-  // 全屏按钮
-  fullscreen: true,
+  // 全屏按钮, 纯净模式下会失效
+  // 注: 与浏览器全屏效果一致
+  fullscreen: false,
 
   // 热重启
   hotReload: true,
@@ -71,7 +71,7 @@ export default hopeTheme({
     
     // 时间线顶部文字
     timeline: "TIME LINE",
-    roundAvatar: true,
+
     description: "活在，此时此刻！",
     // intro: "/intro.html",
     medias: {
@@ -83,6 +83,7 @@ export default hopeTheme({
     },
 
     // 文章展示信息
+    // PageView: 浏览量(仅在开启Waline评论服务时才会支持)
     articleInfo: ["Date", "PageView", "Category", "Tag"],
   },
 
@@ -97,15 +98,21 @@ export default hopeTheme({
   },
 
   // 是否在桌面模式下右侧展示文章标题列表
-  toc: false,
+  toc: true,
 
   // 路径导航
   breadcrumb: false,
 
   // 插件配置
   plugins: {
+    // vuepress-theme-hope 默认捆绑 @vuepress/plugin-prismjs 支持代码高亮
+    // 置为false, 以使 @vuepress/plugin-prismjs 生效
+    prismjs: false,
+    
     // markdown增强
     mdEnhance: {
+      // 启用 GFM 警告
+      alert: true,
       // 启用代码案例
       demo: true,
       // 启用 ECharts 图表
@@ -159,12 +166,22 @@ export default hopeTheme({
     // 启用博客
     blog: true,
 
-    // 文章评论区
-    // comment: {
-    //   // You should generate and use your own comment service
-    //   // 此处应升级为Giscus, 有空配置
-    //   provider: "Waline",
-    //   serverURL: "https://waline-comment.vuejs.press",
-    // },
+    // 使用Giscus作为文章评论区
+    comment: {
+      provider: "Giscus",
+      repo: "RaySunWHUT/Giscus-Discussions",
+      repoId: "R_kgDOL1vc9g", 
+      category: "Announcements",
+      categoryId: "DIC_kwDOL1vc9s4CfEXP"
+    },
+    
+    // 自动生成目录(最大支持深度为3)
+    catalog: {
+      // exclude: 不进行目录解析的.md文件
+      exclude: [
+        "/java/JVM/", 
+        "/algorithm/binarySearch/"
+      ],
+    },
   },
 });
