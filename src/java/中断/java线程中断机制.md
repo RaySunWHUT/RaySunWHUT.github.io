@@ -11,7 +11,7 @@ date: 2023-07-28
 <!-- more -->
 
 ## **线程中断机制-知识图谱**
-![](/website_assets/java/interrupt/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6-1.png)
+![](./img/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6-1.png)
 
 ## **线程中断处理方法**
 Thread类中有3个与线程中断有关的方法: 
@@ -19,7 +19,7 @@ Thread类中有3个与线程中断有关的方法:
 - **`isInterrupted()`**: 返回线程 **中断标识**。
 - **`interrupted()`**: 返回线程 **中断标识**，并 **清除** 线程中断标识(即若当前线程被中断，且中断标识为 **true**，则调用 **`interrupted()`** 方法后，会返回 **true**，同时将线程中断标识置为 **false**)。
 
-![](/website_assets/java/interrupt/image.png)
+![](./img/image.png)
 
 
 ## **中断(Interrupt)作用**
@@ -58,7 +58,7 @@ public class SleepTest {
 }
 
 ```
-![运行结果](/website_assets/java/interrupt/image-1.png)
+![运行结果](./img/image-1.png)
 
 可以看到 Thread.sleep() 方法会可以感知中断，并抛出**InterruptedException异常**，
 其他会抛出 **InterruptedException异常** 的方法包括但不限于:
@@ -67,7 +67,7 @@ public class SleepTest {
 - **`join()`**
 - **`offer()`**
 - **`take()`**
-![](/website_assets/java/interrupt/image-2.png)
+![](./img/image-2.png)
 
 <font color="#C3002E"><b>注</b></font>: 凡是在方法声明中抛出 **InterruptedException异常** 的方法，均可感知到中断标识变化，并会在线程中断标识发生变化 **(置为true)** 后，抛出 **InterruptedException异常**。
 需要特别说明，抛出 **InterruptedException异常** 后，中断标识会被清除(重置为 **false**)。
@@ -127,7 +127,7 @@ public class SleepTest {
         }
     }
     ```
-![运行结果](/website_assets/java/interrupt/image-5.png)
+![运行结果](./img/image-5.png)
 
 程序catch到受检异常InterruptedException后，执行 `e.printStackTrace()` 语句后吞掉了异常，导致出现while死循环。
 
@@ -195,7 +195,7 @@ public class InterruptTest2 {
 }
 ```
 
-![运行结果](/website_assets/java/interrupt/image-4.png)
+![运行结果](./img/image-4.png)
 
 可以看到，**已进入临界区的程序，无法响应中断**，但可以在临界区程序中使用 **isInterrupted()** 等方法判断中断状态, **显示处理中断**。
 
@@ -252,7 +252,7 @@ public class InterruptTest2 {
 }
 ```
 
-![运行结果](/website_assets/java/interrupt/image-3.png)
+![运行结果](./img/image-3.png)
 
 ## 参考文献
 1. https://dayarch.top/p/java-concurrency-book.html

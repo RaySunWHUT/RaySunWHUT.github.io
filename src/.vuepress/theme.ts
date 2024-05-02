@@ -129,6 +129,11 @@ export default hopeTheme({
       gfm: true,
       // 启用幻灯片
       revealJs: true,
+
+      figure: true,
+      // imgSize开启时, 可使用 =widthxheight 指定图像大小
+      imgSize: true,
+      
     },
 
     // 搜索插件
@@ -179,7 +184,7 @@ export default hopeTheme({
     catalog: {
       // exclude: 不进行目录解析的.md文件
       exclude: [
-        "/java/JVM/", 
+        "/java/jvm/", 
         "/algorithm/binarySearch/"
       ],
     },

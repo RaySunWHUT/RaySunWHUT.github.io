@@ -14,9 +14,9 @@ git基础知识及易混淆概念整理
 
 
 ## **Git核心基础-知识图谱**
-![](/website_assets/git/git_basic/image.png)
+![](./img/image.png)
 ## **Git操作流程图**
-![](/website_assets/git/git_basic/image-1.png)
+![](./img/image-1.png)
 
 ## **Git名词解释**
 
@@ -44,7 +44,7 @@ git基础知识及易混淆概念整理
 
 HEAD类似一个“**指针**”，指向 **当前分支** 的 **最新commit**。
 
-![](/website_assets/git/git_basic/image-2.png)
+![](./img/image-2.png)
 
 ## **Git命令**
 
@@ -168,9 +168,7 @@ git log testMater ... testSun
 
 展示 **分支B拥有而分支A没有的所有提交**。
 
-![](/website_assets/git/git_basic/image-6.png)
-
-![](/website_assets/git/git_basic/image-7.png)
+![](./img/image-6.png =450x220) ![](./img/image-7.png =450x220)
 
 #### git log  **三点(…)比较**
 
@@ -178,12 +176,10 @@ git log testMater ... testSun
 
 展示 **分支B拥有而分支A没有的所有提交，以及，分支A拥有而分支B没有的所有提交**。
 
-![](/website_assets/git/git_basic/image-8.png)
-
-![](/website_assets/git/git_basic/image-9.png)
+![](./img/image-8.png =450x220) ![](./img/image-9.png =450x220)
 
 
-![网上流传的原图都包浆了，太丑了，重新绘制(不带水印！)](/website_assets/git/git_basic/git_log2.png)
+![网上流传的原图都包浆了，太丑了，重新绘制(不带水印！)](./img/git_log2.png)
 
 
 ### **git diff**
@@ -207,9 +203,7 @@ git diff testMater ... testSun
 #### **git diff 两点(..)比较 && 三点(...)比较**
 <font color="C3002E"><b>注: 从集合交、并逻辑来看，diff两点比较与log三点比较结果相同，diff三点比较与log两点比较结果相同 </b></font>
 **ps**: 虽然二者逻辑结果相同，但仍有细微差别，log三点比较没有前后顺序之分(即 **`git log A...B`** 与 **`git log B...A`** 结果完全一致)，但diff两点比较( **`git diff A..B`** 与 **`git diff B..A`** )虽然逻辑结果相同，但实际执行返回结果是不同的，体现在交换顺序后，<font color="#43b244"><b>+(增)</b></font> -> <font color="#C3002E"><b>-(减)</b></font>，<font color="#C3002E"><b>-(减)</b></font> -> <font color="#43b244"><b>+(增)</b></font>
-![](/website_assets/git/git_basic/image-4.png)
-
-![网上流传的原图都包浆了，太丑了，重新绘制(不带水印！)](/website_assets/git/git_basic/git_diff2.png)
+![](./img/image-4.png =510x500) ![网上流传的原图都包浆了，太丑了，重新绘制(不带水印！)](./img/git_diff2.png =410x500)
 
 
 ### **git 文件类型**
@@ -227,7 +221,7 @@ git diff testMater ... testSun
 git status
 ```
 
-![](/website_assets/git/git_basic/image-11.png)
+![](./img/image-11.png)
 ### 工作区(workspace)命令
 
 ```bash
