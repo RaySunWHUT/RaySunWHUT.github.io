@@ -185,7 +185,7 @@ export default hopeTheme({
       // exclude: 不进行目录解析的.md文件
       exclude: [
         "/java/jvm/", 
-        "/algorithm/binarySearch/"
+        "/algorithm/binarySearch/",
       ],
     },
   },
