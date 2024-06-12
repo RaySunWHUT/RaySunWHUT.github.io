@@ -9,4 +9,5 @@ export default navbar([
     link: "/algorithm/",
   },
   "/components/",
+  "/system design/"
 ]);

@@ -14,6 +14,9 @@ devDependencies:
   '@vuepress/plugin-shiki':
     specifier: 2.0.0-rc.25
     version: 2.0.0-rc.25(vuepress@2.0.0-rc.9)
+  katex:
+    specifier: ^0.16.10
+    version: 0.16.10
   reveal.js:
     specifier: ^5.1.0
     version: 5.1.0
@@ -25,13 +28,13 @@ devDependencies:
     version: 2.0.0-rc.9(@vuepress/bundler-vite@2.0.0-rc.9)(vue@3.4.26)
   vuepress-plugin-md-enhance:
     specifier: 2.0.0-rc.38
-    version: 2.0.0-rc.38(markdown-it@14.1.0)(reveal.js@5.1.0)(vuepress@2.0.0-rc.9)
+    version: 2.0.0-rc.38(katex@0.16.10)(markdown-it@14.1.0)(reveal.js@5.1.0)(vuepress@2.0.0-rc.9)
   vuepress-plugin-search-pro:
     specifier: 2.0.0-rc.38
     version: 2.0.0-rc.38(vuepress@2.0.0-rc.9)
   vuepress-theme-hope:
     specifier: 2.0.0-rc.38
-    version: 2.0.0-rc.38(markdown-it@14.1.0)(reveal.js@5.1.0)(vuepress-plugin-search-pro@2.0.0-rc.38)(vuepress@2.0.0-rc.9)
+    version: 2.0.0-rc.38(katex@0.16.10)(markdown-it@14.1.0)(reveal.js@5.1.0)(vuepress-plugin-search-pro@2.0.0-rc.38)(vuepress@2.0.0-rc.9)
 
 packages:
 
@@ -485,7 +488,7 @@ packages:
       upath: 2.0.1
     dev: true
 
-  /@mdit/plugin-katex@0.9.0(markdown-it@14.1.0):
+  /@mdit/plugin-katex@0.9.0(katex@0.16.10)(markdown-it@14.1.0):
     resolution: {integrity: sha512-dLAjDW9TWD3mwjzENAYV0PtW9QyBec6EfJwBauKuj3dbSIhfIBaorMIL94tbYe35ZYT/f4Zisl+4YIixU2m9XQ==}
     engines: {node: '>= 18'}
     peerDependencies:
@@ -500,6 +503,7 @@ packages:
       '@mdit/plugin-tex': 0.9.0(markdown-it@14.1.0)
       '@types/katex': 0.16.7
       '@types/markdown-it': 14.0.1
+      katex: 0.16.10
       markdown-it: 14.1.0
     dev: true
 
@@ -1549,6 +1553,11 @@ packages:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
     dev: true
 
+  /commander@8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
+    engines: {node: '>= 12'}
+    dev: true
+
   /connect-history-api-fallback@2.0.0:
     resolution: {integrity: sha512-U73+6lQFmfiNPrYbXqr6kZ1i1wiRqXnp2nhMsINseWXO8lDau0LGEffJ8kQi4EjLZympVgRdvqjAgiZ1tgzDDA==}
     engines: {node: '>=0.8'}
@@ -1950,6 +1959,13 @@ packages:
       universalify: 2.0.1
     optionalDependencies:
       graceful-fs: 4.2.11
+    dev: true
+
+  /katex@0.16.10:
+    resolution: {integrity: sha512-ZiqaC04tp2O5utMsl2TEZTXxa6WSC4yo0fv5ML++D3QZv/vx2Mct0mTlRx3O+uUkjfuAgOkzsCmq5MiUEsDDdA==}
+    hasBin: true
+    dependencies:
+      commander: 8.3.0
     dev: true
 
   /kind-of@6.0.3:
@@ -2631,7 +2647,7 @@ packages:
       - typescript
     dev: true
 
-  /vuepress-plugin-md-enhance@2.0.0-rc.38(markdown-it@14.1.0)(reveal.js@5.1.0)(vuepress@2.0.0-rc.9):
+  /vuepress-plugin-md-enhance@2.0.0-rc.38(katex@0.16.10)(markdown-it@14.1.0)(reveal.js@5.1.0)(vuepress@2.0.0-rc.9):
     resolution: {integrity: sha512-qTaWHJR8+OM04Nor/nHeUtxtOH18KfKGEI5TAEu+FAAXbbE780XXUiHHvBRjK4rlX5vqp9CoTx8V0aqeIga0BA==}
     engines: {node: '>=18.18.0', npm: '>=8', pnpm: '>=7', yarn: '>=2'}
     peerDependencies:
@@ -2694,7 +2710,7 @@ packages:
       '@mdit/plugin-img-mark': 0.9.0(markdown-it@14.1.0)
       '@mdit/plugin-img-size': 0.9.0(markdown-it@14.1.0)
       '@mdit/plugin-include': 0.9.0(markdown-it@14.1.0)
-      '@mdit/plugin-katex': 0.9.0(markdown-it@14.1.0)
+      '@mdit/plugin-katex': 0.9.0(katex@0.16.10)(markdown-it@14.1.0)
       '@mdit/plugin-mark': 0.9.0(markdown-it@14.1.0)
       '@mdit/plugin-mathjax': 0.9.0(markdown-it@14.1.0)
       '@mdit/plugin-plantuml': 0.9.0(markdown-it@14.1.0)
@@ -2710,6 +2726,7 @@ packages:
       '@vueuse/core': 10.9.0(vue@3.4.26)
       balloon-css: 1.2.0
       js-yaml: 4.1.0
+      katex: 0.16.10
       reveal.js: 5.1.0
       vue: 3.4.26
       vuepress: 2.0.0-rc.9(@vuepress/bundler-vite@2.0.0-rc.9)(vue@3.4.26)
@@ -2786,7 +2803,7 @@ packages:
       - typescript
     dev: true
 
-  /vuepress-theme-hope@2.0.0-rc.38(markdown-it@14.1.0)(reveal.js@5.1.0)(vuepress-plugin-search-pro@2.0.0-rc.38)(vuepress@2.0.0-rc.9):
+  /vuepress-theme-hope@2.0.0-rc.38(katex@0.16.10)(markdown-it@14.1.0)(reveal.js@5.1.0)(vuepress-plugin-search-pro@2.0.0-rc.38)(vuepress@2.0.0-rc.9):
     resolution: {integrity: sha512-TveKpMfJnFBFxO+D3gK3pejNwz326lCDVRGJnT4/1YVlrvbLFtHEqwt3ftmMqZHP1JLzHunmJaP5ztA1gKfjgQ==}
     engines: {node: '>=18.18.0', npm: '>=8', pnpm: '>=7', yarn: '>=2'}
     peerDependencies:
@@ -2845,7 +2862,7 @@ packages:
       vue: 3.4.26
       vuepress: 2.0.0-rc.9(@vuepress/bundler-vite@2.0.0-rc.9)(vue@3.4.26)
       vuepress-plugin-components: 2.0.0-rc.38(vuepress@2.0.0-rc.9)
-      vuepress-plugin-md-enhance: 2.0.0-rc.38(markdown-it@14.1.0)(reveal.js@5.1.0)(vuepress@2.0.0-rc.9)
+      vuepress-plugin-md-enhance: 2.0.0-rc.38(katex@0.16.10)(markdown-it@14.1.0)(reveal.js@5.1.0)(vuepress@2.0.0-rc.9)
       vuepress-plugin-sass-palette: 2.0.0-rc.38(vuepress@2.0.0-rc.9)
       vuepress-plugin-search-pro: 2.0.0-rc.38(vuepress@2.0.0-rc.9)
       vuepress-shared: 2.0.0-rc.38(vuepress@2.0.0-rc.9)

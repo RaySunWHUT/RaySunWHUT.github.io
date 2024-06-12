@@ -134,6 +134,8 @@ export default hopeTheme({
       // imgSize开启时, 可使用 =widthxheight 指定图像大小
       imgSize: true,
       
+      // 使用 KaTeX 启用 TeX 支持
+      katex: true,
     },
 
     // 搜索插件
