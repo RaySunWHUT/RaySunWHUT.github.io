@@ -45,7 +45,8 @@ SQL优化的本质是减少机器的 IO 和 CPU 的资源消耗。
 11. 不要使用大偏移量的**limit分页**(如果业务逻辑需要支持大偏移量的limit分页，参见[深分页问题](https://raysunwhut.github.io/system%20design/%E5%88%86%E9%A1%B5%E9%97%AE%E9%A2%98/%E6%B7%B1%E5%88%86%E9%A1%B5.html))
 12. 使用 **!=** 或 **<>** 会导致全表扫描
 13. 使用 **group by** 时，若无排序需求，建议加 **ORDER BY NULL**
-14. 性能非常紧张时，不使用 **group by、distinct、order by** 等关键字，**使用java/python/Go程序实现数据操作逻辑**
+14. 性能非常紧张时，最好不使用 **group by、distinct、order by** 等关键字，**使用java/python/Go程序实现数据操作逻辑**
+14. 当已在where条件中正确使用索引 & 操作的数据量非常大时，使用 **GROUP BY/distinct/ORDER BY** 等仍然会产生额外的数据IO时间开销，导致数据库在处理大量数据时增加额外的计算成本，即使GROUP BY等操作在索引列上使用也不例外。故在性能非常紧张时，不要使用 **GROUP BY/distinct/ORDER BY** 等关键字，而是使用java/python/Go程序实现数据操作逻辑。
 
 
 
